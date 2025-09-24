@@ -1,5 +1,10 @@
 package main
 
-func main() {
+import (
+	"server/core"
+	"server/global"
+)
 
+func main() {
+	global.Config = core.InitConf()
 }
