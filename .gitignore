@@ -7,7 +7,7 @@ bin-release/
 # Other files and folders
 .settings/
 .idea/
-config.yaml
+server/config.yaml
 
 # Executables
 *.swf
