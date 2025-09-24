@@ -2,7 +2,7 @@ package config
 
 import (
 	"fmt"
-	"server/model/appTypes"
+	"go_blog/server/model/appTypes"
 	"strings"
 )
 
