@@ -7,5 +7,5 @@ import (
 
 var (
 	Config *config.Config
-	Logger *zap.Logger
+	Log    *zap.Logger
 )
