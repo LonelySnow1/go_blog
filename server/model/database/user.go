@@ -8,7 +8,7 @@ import (
 type User struct {
 	UUID      uuid.UUID         `json:"uuid" gorm:"type:char(36);unique"`
 	Username  string            `json:"username"`
-	Password  string            `json:"password"`
+	Password  string            `json:"-"`
 	Email     string            `json:"email"`
 	Openid    string            `json:"openid"`
 	Avatar    string            `json:"avatar" gorm:"size:255"`
