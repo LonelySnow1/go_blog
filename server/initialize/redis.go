@@ -16,7 +16,7 @@ func ConnectRedis() redis.Client {
 		DB:       redisCfg.DB,
 	})
 
-	_, err := client.Ping().Result() // test联通
+	_, err := client.Ping().Result() // test连通
 	if err != nil {
 		global.Log.Error("Failed to connect to redis", zap.Error(err))
 		os.Exit(1)
