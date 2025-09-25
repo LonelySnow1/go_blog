@@ -13,7 +13,7 @@ var (
 	Config     *config.Config
 	Log        *zap.Logger
 	DB         *gorm.DB
-	ESClient   *elasticsearch.Client
+	ESClient   *elasticsearch.TypedClient
 	Redis      *redis.Client
 	BlackCache local_cache.Cache
 )

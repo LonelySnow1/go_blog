@@ -7,7 +7,7 @@ import (
 	"server/global"
 )
 
-func ConnectRedis() redis.Client {
+func ConnectRedis() *redis.Client {
 	redisCfg := global.Config.Redis
 
 	client := redis.NewClient(&redis.Options{ // 新建redis链接
@@ -22,5 +22,5 @@ func ConnectRedis() redis.Client {
 		os.Exit(1)
 	}
 
-	return *client
+	return client
 }
