@@ -34,7 +34,7 @@ func ArticleMapping() *types.TypeMapping {
 			"created_at": types.DateProperty{NullValue: nil, Format: func(s string) *string { return &s }("yyyy-MM-dd HH:mm:ss")},
 			"updated_at": types.DateProperty{NullValue: nil, Format: func(s string) *string { return &s }("yyyy-MM-dd HH:mm:ss")},
 			"cover":      types.TextProperty{},
-			"title":      types.TextProperty{},
+			"title":      types.TextProperty{}, // test支持全文搜索
 			"keyword":    types.KeywordProperty{},
 			"category":   types.KeywordProperty{},
 			"tags":       []types.KeywordProperty{},
