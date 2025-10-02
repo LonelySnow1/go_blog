@@ -21,6 +21,6 @@ func (esService *EsService) IndexDelete(indexName string) error {
 }
 
 // IndexExist 判断索引是否存在
-func (esService *EsService) IndexExist(indexName string) (bool, error) {
+func (esService *EsService) IndexExists(indexName string) (bool, error) {
 	return global.ESClient.Indices.Exists(indexName).Do(context.TODO())
 }
