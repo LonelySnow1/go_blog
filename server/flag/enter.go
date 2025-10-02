@@ -11,6 +11,8 @@ import (
 
 // 定义 CLI 标志，用于不同操作的命令行选项
 var (
+	// BoolFlag：适合表示 “开关型” 选项 —— 即 “是否启用某个功能”。
+	// StringFlag：适合需要用户提供具体信息的选项 —— 即 “该功能需要一个参数才能运行”。
 	sqlFlag = &cli.BoolFlag{
 		Name:  "sql",
 		Usage: "Initializes the srtucture of the MySQL database table.",
