@@ -45,7 +45,7 @@ func ElasticsearchImport(jsonPath string) (int, error) {
 	}
 
 	// 构建批量请求数据
-	var request bulk.Request
+	var request bulk.Request // bulk 批量请求
 	for _, data := range response.Data {
 		// 为每条数据创建索引操作，指定文档的 ID
 		request = append(request, types.OperationContainer{Index: &types.IndexOperation{Id_: data.ID}})

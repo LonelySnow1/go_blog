@@ -11,7 +11,7 @@ import (
 func Elasticsearch() error {
 	esService := service.ServiceGroupApp.EsService
 
-	indexExist, err := esService.IndexExist(elasticsearch.ArticleIndex())
+	indexExist, err := esService.IndexExists(elasticsearch.ArticleIndex())
 	if err != nil {
 		return err
 	}
