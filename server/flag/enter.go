@@ -110,7 +110,7 @@ func Run(c *cli.Context) {
 // NewApp 创建并配置一个新的 CLI 应用程序，设置标志和默认操作
 func NewApp() *cli.App {
 	app := cli.NewApp()
-	app.Name = "Go Blog"
+	app.Name = "go blog"
 	app.Flags = []cli.Flag{
 		sqlFlag,
 		sqlExportFlag,
