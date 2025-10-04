@@ -15,5 +15,6 @@ func (b *BaseRouter) InitBaseRouter(Router *gin.RouterGroup) {
 	{
 		baseRouter.POST("captcha", baseApi.Captcha)
 		baseRouter.POST("sendEmailCode", baseApi.SendEmailCode)
+		baseRouter.GET("qqLoginURL", baseApi.QQLoginURL)
 	}
 }
