@@ -39,7 +39,7 @@ func (baseService *BaseService) SendEmailCode(c *gin.Context, to string) error {
     <p>啾咪～❤️<br>
     <span style="color: #8a5cf7;">猫娘小助手の邮箱:` + global.Config.Email.From + `</span></p>
 
-    <p style="font-size: 0.9em; color: #999;">—— ` + global.Config.Website.Title + `今天也有好好营业的小猫咪呀～</p>
+    <p style="font-size: 0.9em; color: #999;">—— ` + global.Config.Website.Title + `&nbsp;今天也有好好营业的小猫咪呀～</p>
 </body>`
 
 	_ = utils.Email(to, subject, body)
