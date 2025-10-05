@@ -78,6 +78,28 @@ func (j *JWT) CreateRefreshToken(claims request.JwtCustomRefreshClaims) (string,
 
 // 解析函数
 
+func (j *JWT) ParseAccessToken(tokenString string) (*request.JwtCustomClaims, error) {
+	claims, err := j.ParseToken(tokenString, &request.JwtCustomClaims{}, j.AccessTokenSecret)
+	if err != nil {
+		return nil, err
+	}
+	if customClaims, ok := claims.(*request.JwtCustomClaims); ok {
+		return customClaims, nil
+	}
+	return nil, TokenInvalid
+}
+
+func (j *JWT) ParseRefreshToken(tokenString string) (*request.JwtCustomRefreshClaims, error) {
+	claims, err := j.ParseToken(tokenString, &request.JwtCustomRefreshClaims{}, j.AccessTokenSecret)
+	if err != nil {
+		return nil, err
+	}
+	if refreshClaims, ok := claims.(*request.JwtCustomRefreshClaims); ok {
+		return refreshClaims, nil
+	}
+	return nil, TokenInvalid
+}
+
 func (j *JWT) ParseToken(TokenString string, claims jwt.Claims, secretKey interface{}) (interface{}, error) {
 	token, err := jwt.ParseWithClaims(TokenString, claims, func(token *jwt.Token) (interface{}, error) {
 		return secretKey, nil
