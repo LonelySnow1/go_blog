@@ -27,6 +27,9 @@ func InitRouter() *gin.Engine {
 	routerGroup := router.RouterGroupApp
 	// 公共路由
 	publicGroup := Router.Group(global.Config.System.RouterPrefix)
+	privateGroup := Router.Group(global.Config.System.RouterPrefix)
+	privateGroup.Use(middleware.JWTAuth())
+	//adminGroup := Router.Group(global.Config.System.RouterPrefix)
 	{
 		routerGroup.InitBaseRouter(publicGroup)
 	}
