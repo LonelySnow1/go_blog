@@ -12,6 +12,32 @@ import (
 	"strconv"
 )
 
+/*
+	双 token ：
+		AccessToken : 访问令牌 用于直接访问API接口或资源，有效期较短
+		RefreshToken : 刷新令牌 用于获取新的访问令牌，不直接参与接口/资源的访问，有效期较长
+		服务器请求时，优先验证AccessToken
+		-> 若 AccessToken无效或过期，验证 RefreshToken，不在黑名单中就生成新的 AccessToken
+		-> 若 RefreshToken 无效，则要求用户重新登录
+*/
+
+/*
+	优点：
+		1. 提升安全性，降低令牌泄露风险： 访问令牌有效时间短，而刷新令牌可添加更细粒度的安全校验
+		2. 避免重复登陆，用户体验好 ： 一次登录，长期有效
+		3. 令牌吊销平滑 ： 需要令牌主动失效的场景，双token表现更好，如账号登出
+
+	双token常用场景：
+		1. 企业级单点登录 SSO
+		2. 金融支付等高敏操作
+		3. 长期离线场景： 邮箱客户端等
+
+	单token优点：
+		1. 开发效率高
+		2. 对分布式系统天然友好：水平扩展零压力，无需额外的认证中转
+		3. 无感续期，采用与单 token中的accesstoken相似的续期机制，自动续期
+*/
+
 var jwtService = service.ServiceGroupApp.JwtService
 
 func JETAuth() gin.HandlerFunc {
