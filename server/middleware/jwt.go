@@ -40,7 +40,7 @@ import (
 
 var jwtService = service.ServiceGroupApp.JwtService
 
-func JETAuth() gin.HandlerFunc {
+func JWTAuth() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		accessToken := utils.GetAccessToken(c)
 		refreshToken := utils.GetRefreshToken(c)
