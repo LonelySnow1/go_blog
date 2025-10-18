@@ -6,14 +6,15 @@ import (
 	"server/middleware"
 )
 
-type UserRouter struct{}
+type UserRouter struct {
+}
 
 func (u *UserRouter) InitUserRouter(Router *gin.RouterGroup, PublicRouter *gin.RouterGroup, AdminRouter *gin.RouterGroup) {
 	userRouter := Router.Group("user")
 	userPublicRouter := PublicRouter.Group("user")
-	userLoginRouter := PublicRouter.Group("userLogin").Use(middleware.LoginRecord())
+	userLoginRouter := PublicRouter.Group("user").Use(middleware.LoginRecord())
 	userAdminRouter := AdminRouter.Group("user")
-	userapi := api.ApiGroupApp.UserApi
+	userApi := api.ApiGroupApp.UserApi
 	{
 		userRouter.POST("logout", userApi.Logout)
 		userRouter.PUT("resetPassword", userApi.UserResetPassword)

@@ -25,7 +25,7 @@ func InitRouter() *gin.Engine {
 	Router.StaticFS(global.Config.Upload.Path, http.Dir(global.Config.Upload.Path))
 	// 创建路由组
 	routerGroup := router.RouterGroupApp
-	// 公共路由
+
 	publicGroup := Router.Group(global.Config.System.RouterPrefix)
 	privateGroup := Router.Group(global.Config.System.RouterPrefix)
 	privateGroup.Use(middleware.JWTAuth())
@@ -35,7 +35,7 @@ func InitRouter() *gin.Engine {
 		routerGroup.InitBaseRouter(publicGroup)
 	}
 	{
-		routerGroup.InitUserRouter(publicGroup, publicGroup)
+		routerGroup.InitUserRouter(privateGroup, publicGroup, adminGroup)
 	}
 	return Router
 }
