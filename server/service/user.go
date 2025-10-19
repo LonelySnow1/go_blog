@@ -239,7 +239,7 @@ func (userService *UserService) UserLoginList(info request.UserLoginList) (inter
 	option := other.MySQLOption{
 		PageInfo: info.PageInfo,
 		Where:    db,
-		Preload:  []string{"User"},
+		Preload:  []string{"User"}, // 预加载 让外键关联的数据加载出来
 	}
 
 	return utils.MySQLPagination(&database.Login{}, option)

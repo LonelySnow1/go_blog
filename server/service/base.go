@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"server/global"
@@ -17,9 +18,14 @@ func (baseService *BaseService) SendEmailCode(c *gin.Context, to string) error {
 
 	session := sessions.Default(c)
 	session.Set("verification_code", verificationCode)
-	session.Set("expire_time", expireTime)
 	session.Set("email", to)
+	session.Set("expire_time", expireTime)
 	_ = session.Save()
+
+	// FIXME: 仅测试使用，获取邮箱验证码
+	fmt.Println("--------------------")
+	fmt.Printf("邮箱地址: %s\n验证码: %s\n", to, verificationCode)
+	fmt.Println("--------------------")
 
 	subject := "喵~你的身份验证码来啦！"
 	body := `<body style="font-family: 'Arial Rounded MT Bold', 'Helvetica Neue', sans-serif; line-height: 1.6; color: #555;">

@@ -1,6 +1,7 @@
 package api
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/mojocn/base64Captcha"
 	"go.uber.org/zap"
@@ -41,6 +42,13 @@ func (baseApi *BaseApi) Captcha(c *gin.Context) {
 		response.FailWithMessage("Failed to generate captcha", c)
 		return
 	}
+
+	// FIXME:从默认存储中获取验证码答案（clear=false 表示不删除，避免后续验证失效） 仅测试使用
+	code := base64Captcha.DefaultMemStore.Get(id, false)
+	fmt.Println("--------------------")
+	fmt.Printf("图形验证码ID: %s\n答案: %s\n", id, code)
+	fmt.Println("--------------------")
+
 	response.OkWithData(response.Captcha{
 		CaptchaId: id,
 		PicPath:   b64s,
