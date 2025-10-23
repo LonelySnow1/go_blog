@@ -8,6 +8,7 @@ type RouterGroup struct {
 	CommentRouter
 	AdvertisementRouter
 	FriendLinkRouter
+	FeedbackRouter
 }
 
 var RouterGroupApp = new(RouterGroup)
