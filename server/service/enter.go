@@ -13,6 +13,9 @@ type ServiceGroup struct {
 	AdvertisementService
 	FriendLinkService
 	FeedbackService
+	WebsiteService
+	HotSearchService
+	CalendarService
 }
 
 var ServiceGroupApp = new(ServiceGroup)
