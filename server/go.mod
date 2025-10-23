@@ -21,6 +21,7 @@ require (
 	github.com/qiniu/go-sdk/v7 v7.22.0
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/songzhibin97/gkit v1.2.13
+	github.com/tidwall/gjson v1.18.0
 	github.com/ua-parser/uap-go v0.0.0-20250917011043-9c86a9b0f8f0
 	github.com/urfave/cli v1.22.17
 	go.uber.org/zap v1.27.0
@@ -74,7 +75,6 @@ require (
 	github.com/quic-go/qpack v0.5.1 // indirect
 	github.com/quic-go/quic-go v0.54.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
-	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
