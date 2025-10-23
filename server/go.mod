@@ -38,7 +38,7 @@ require (
 	github.com/bytedance/sonic/loader v0.3.0 // indirect
 	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.7 // indirect
-	github.com/elastic/go-sysinfo v1.0.2 // indirect
+	github.com/elastic/go-sysinfo v1.11.2 // indirect
 	github.com/elastic/go-windows v1.0.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
 	github.com/gammazero/toposort v0.1.1 // indirect
