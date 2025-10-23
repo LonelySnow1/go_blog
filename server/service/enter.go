@@ -16,6 +16,7 @@ type ServiceGroup struct {
 	WebsiteService
 	HotSearchService
 	CalendarService
+	ConfigService
 }
 
 var ServiceGroupApp = new(ServiceGroup)

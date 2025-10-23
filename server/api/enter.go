@@ -12,6 +12,7 @@ type ApiGroup struct {
 	FriendLinkApi
 	FeedbackApi
 	WebsiteApi
+	ConfigApi
 }
 
 var ApiGroupApp = new(ApiGroup)
@@ -27,3 +28,4 @@ var advertisementService = service.ServiceGroupApp.AdvertisementService
 var friendLinkService = service.ServiceGroupApp.FriendLinkService
 var feedbackService = service.ServiceGroupApp.FeedbackService
 var websiteService = service.ServiceGroupApp.WebsiteService
+var configService = service.ServiceGroupApp.ConfigService
